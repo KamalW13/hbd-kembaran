@@ -1,0 +1,435 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+.pakeHP{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: none;
+}
+
+section{
+    background-color: #EFEDFF;
+    min-width: 100vw;
+    min-height: 100vh;
+    scroll-snap-align: start;
+}
+
+.container-section.hidden{
+    display: none;
+}
+
+#balloon-container {
+  height: 100vh;
+  padding: 1em;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: opacity 500ms;
+  position: fixed;
+}
+
+.balloon {
+  height: 125px;
+  width: 105px;
+  border-radius: 75% 75% 70% 70%;
+  position: relative;
+}
+
+.balloon:before {
+  content: "";
+  height: 75px;
+  width: 1px;
+  padding: 1px;
+  background-color: #FDFD96;
+  display: block;
+  position: absolute;
+  top: 125px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.balloon:after {
+    content: "▲";
+    text-align: center;
+    display: block;
+    position: absolute;
+    color: inherit;
+    top: 120px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh);
+  opacity: 1;}
+  to {transform: translateY(-300vh);
+  opacity: 0;}
+}
+
+
+.page-1{
+    display: grid;
+    place-content: center;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative
+}
+
+.pembuka{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 20;
+    display: grid;
+    place-content: center;
+    color: white;
+    gap: 20px;
+    top: 0;
+    transition: 10s ease-in;
+    transform: translateY(0);
+}
+
+.pembuka.close{
+    transform: translateY(-100vh);
+}
+
+.pembuka span{
+    font-size: 7em;
+}
+
+.pembuka button{
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.page-1 .text-berjalan{
+    position: absolute;
+    top: 20%;
+}
+
+.page-1 marquee{
+    font-size: 5em;
+}
+
+.page-1 h1.name{
+    margin-top: 100%;    
+    font-size: 2em;
+}
+
+img.overlay{
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+}
+
+img.overlay.balon1{
+    left: 80px;
+    animation: balon1 infinite 5s ease-in;
+}
+
+img.overlay.balon1v2{
+    right: 80px;
+    animation: balon1 infinite 8s ease-in;
+}
+
+img.overlay.balon2{
+    left: 200px;
+    bottom: 30px;
+    animation: balon2 infinite 4s ease-in;
+}
+
+img.overlay.balon2v2{
+    right: 200px;
+    bottom: 30px;
+    animation: balon2 infinite 6s ease-in;
+}
+
+img.overlay.balon3{
+    left: 350px;
+    bottom: 70px;
+    animation: balon2 infinite 8s ease-in;
+}
+
+img.overlay.balon3v2{
+    right: 350px;
+    bottom: 70px;
+    animation: balon2 infinite 9s ease-in;
+}
+
+.page-2{
+    display: flex;
+    flex-direction: row;
+}
+
+.page-2 .bagianFoto, .page-2 .message{
+    flex: 50%;
+}
+
+.bagianFoto{
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    justify-content: center;
+}
+
+.bagianFoto .contain{
+    height: 100%;
+    width: 500px;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bagianFoto .contain img{
+    position: absolute; 
+    transition: .5s ease-in-out;
+}
+
+.bagianFoto .box{
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    background-color: rgb(217, 49, 255);
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    display: grid;
+    place-content: center;
+    z-index: 3;
+}
+
+.bagianFoto .contain img:nth-child(2){
+    transform: translate(50px, -280px);
+    rotate: -5deg;
+    z-index: 2;
+    animation: patahPatah 2s steps(1) infinite;
+}
+
+.bagianFoto .contain img:nth-child(3){
+    transform: translate(-100px, -200px);
+    rotate: 10deg;
+    z-index: 2;
+    animation: patahPatah 2s steps(1) infinite .2s;
+}
+
+.bagianFoto .contain img:nth-child(4){
+    transform: translate(-90px, -490px);
+    animation: patahPatah 2s steps(1) infinite .4s;
+}
+
+.bagianFoto .contain img:nth-child(5){
+    transform: translate(100px, -270px);
+    animation: patahPatah 2s steps(1) infinite .5s;
+}
+
+.bagianFoto .contain img.hidden{
+    transform: translateY(600px);
+}
+
+.bagianFoto .box button{
+    width: 300px;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 13px;
+    border: none;
+    outline: none;
+}
+
+.page-2 .message{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    z-index: 2;
+}
+
+.page-2 .message .box-message{
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 13px;
+    box-shadow: 2px 2px 1px 1px black;
+    overflow-y: scroll;
+}
+
+.box-message h1{
+    font-size: 3em;
+}
+
+.box-message p{
+    font-size: 2em;
+    opacity: .5
+}
+
+
+.page-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-3 .tombol{
+    background-color: gold;
+    max-height: 90px;
+    color: black;
+    border: 1px solid black;
+    box-shadow: 3px 3px 1px 2px black;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 4em;
+    border-radius: 13px;
+    z-index: 10;
+}
+
+.page-3 .tombol.toTop{
+    transform: translateY(-150px) !important;
+}
+
+.page-3 .tombol:hover{
+    background-color: rgb(212, 180, 0);
+}
+
+.page-3 .pesan-funfact{
+    font-size: 2em;
+    height: 400px;
+    width: 900px;
+    background-color: white;
+    border: 3px solid black;
+    overflow-y: scroll;
+    padding: 20px;
+    border-radius: 13px;
+    box-shadow: 3px 3px 1px 2px black;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, -150px);
+    transition: 1s;
+    opacity: .8;
+}
+
+.page-3 .pesan-funfact.hidden{
+    transform: translate(50%, 100vh);
+}
+
+.text-berjalan .left{
+    animation: toLeft 4s infinite;
+}
+
+.text-berjalan .right{
+    animation: right 4s infinite;
+}
+
+
+@keyframes balon1{
+    0%{
+        transform: translateY(200px);
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-400px);
+        opacity: 0;
+    }
+}
+
+@keyframes balon2{
+    0%{
+        transform: translateY(200px);
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-500px);
+        opacity: 0;
+    }
+}
+
+@keyframes patahPatah{
+    0%{
+        rotate: 0deg;
+    }
+    25%{
+        rotate: -5deg;
+    }
+    50%{
+        rotate: 0deg;
+    }75%{
+        rotate: 5deg;
+    }100%{
+        rotate: 0deg;
+    }
+}
+
+
+@keyframes toLeft{
+    0%{
+        transform: translateX(-50vh);
+    }
+    100%{
+        transform: translateX(-100vh);
+    }
+}
+
+@keyframes toRight{
+    0%{
+        transform: translateX(50vh);
+    } 100%{
+        transform: translateX(100vh);
+    }
+}
+
+
+@media (max-width: 576px) {
+    .pakeHP{
+        display: grid;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        bottom: 0;
+        padding: 20px;
+        place-content: center;
+    }
+
+    #balloon-container{
+        display: none;
+    }
+
+    img.overlay{
+        display: none;
+    }
+
+    .pembuka{
+        display: none;
+    }
+
+    .container-section{
+        display: none;
+    }
+}
